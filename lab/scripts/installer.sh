@@ -29,6 +29,9 @@ argocd_checksum='1b9a5f7c47b3c1326a622533f073cef46511e391d296d9b075f583b47478035
 terraform_version='1.4.1'
 terraform_checksum='9e9f3e6752168dea8ecb3643ea9c18c65d5a52acc06c22453ebc4e3fc2d34421'
 
+brew_version=''
+brew_checksum='c86833e49a6310bf2a90d562f5df537c2cb59dcdae66e025585c9b717cee032d'
+
 download_and_verify () {
   url=$1
   checksum=$2
@@ -108,6 +111,20 @@ rm -rf terraform.zip
 download_and_verify "https://github.com/argoproj/argo-cd/releases/download/v${argocd_version}/argocd-linux-amd64" "$argocd_checksum" "argocd-linux-amd64"
 chmod +x ./argocd-linux-amd64
 mv ./argocd-linux-amd64 /usr/local/bin/argocd
+
+# brew
+curl --location --show-error --silent "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh" -o "brew-install.sh"
+chmod +x ./brew-install.sh
+./brew-install.sh
+rm -rf ./brew-install.sh
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
+echo "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# eks-node-viewer
+brew tap aws/tap
+brew install aws-eks-node-viewer
+
+
 
 REPOSITORY_OWNER=${REPOSITORY_OWNER:-"aws-samples"}
 REPOSITORY_NAME=${REPOSITORY_NAME:-"eks-workshop-v2"}
