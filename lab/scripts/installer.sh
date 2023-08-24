@@ -115,7 +115,7 @@ mv ./argocd-linux-amd64 /usr/local/bin/argocd
 # brew
 curl --location --show-error --silent "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh" -o "brew-install.sh"
 chmod +x ./brew-install.sh
-# ./brew-install.sh
+./brew-install.sh
 # rm -rf ./brew-install.sh
 # echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
 # echo "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
