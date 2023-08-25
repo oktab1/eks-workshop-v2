@@ -29,9 +29,6 @@ argocd_checksum='1b9a5f7c47b3c1326a622533f073cef46511e391d296d9b075f583b47478035
 terraform_version='1.4.1'
 terraform_checksum='9e9f3e6752168dea8ecb3643ea9c18c65d5a52acc06c22453ebc4e3fc2d34421'
 
-brew_version=''
-brew_checksum='c86833e49a6310bf2a90d562f5df537c2cb59dcdae66e025585c9b717cee032d'
-
 download_and_verify () {
   url=$1
   checksum=$2
