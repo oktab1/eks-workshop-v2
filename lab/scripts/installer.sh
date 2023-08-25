@@ -114,8 +114,8 @@ mkdir -p ~/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master |
 alias brew="~/homebrew/bin/brew"
 
 # eks-node-viewer
-brew tap aws/tap
-brew install aws-eks-node-viewer
+# brew tap aws/tap
+# brew install aws-eks-node-viewer
 
 
 
