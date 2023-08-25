@@ -29,6 +29,9 @@ argocd_checksum='1b9a5f7c47b3c1326a622533f073cef46511e391d296d9b075f583b47478035
 terraform_version='1.4.1'
 terraform_checksum='9e9f3e6752168dea8ecb3643ea9c18c65d5a52acc06c22453ebc4e3fc2d34421'
 
+eksnodeviewer_version='0.4.3'
+eksnodeviewer_checksum='f1aa5ede4a70b254b8a51c2d65fa11a6247e2bbde6c974e110f72d577d1713bf'
+
 download_and_verify () {
   url=$1
   checksum=$2
@@ -109,8 +112,10 @@ download_and_verify "https://github.com/argoproj/argo-cd/releases/download/v${ar
 chmod +x ./argocd-linux-amd64
 mv ./argocd-linux-amd64 /usr/local/bin/argocd
 
-# brew
-go install github.com/awslabs/eks-node-viewer/cmd/eks-node-viewer@latest
+# eks-node-viewer
+download_and_verify "https://github.com/awslabs/eks-node-viewer/releases/download/v${eksnodeviewer_version}/eks-node-viewer_Linux_x86_64" "$eksnodeviewer_checksum" "eks-node-viewer"
+chmod +x ./eks-node-viewer
+mv ./eks-node-viewer /usr/local/bin
 
 REPOSITORY_OWNER=${REPOSITORY_OWNER:-"aws-samples"}
 REPOSITORY_NAME=${REPOSITORY_NAME:-"eks-workshop-v2"}
