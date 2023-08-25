@@ -110,18 +110,7 @@ chmod +x ./argocd-linux-amd64
 mv ./argocd-linux-amd64 /usr/local/bin/argocd
 
 # brew
-curl --location --show-error --silent "https://github.com/Homebrew/brew/tarball/master" -o "homebrew.tar.gz"
-mkdir -p homebrew
-tar xfz homebrew.tar.gz --strip 1 -C ./homebrew
-mv -f ./homebrew /usr/local/bin
-rm -rf homebrew.tar.gz
-alias brew="/usr/local/bin/homebrew/bin/brew"
-
-# eks-node-viewer
-# brew tap aws/tap
-# brew install aws-eks-node-viewer
-
-
+go install github.com/awslabs/eks-node-viewer/cmd/eks-node-viewer@latest
 
 REPOSITORY_OWNER=${REPOSITORY_OWNER:-"aws-samples"}
 REPOSITORY_NAME=${REPOSITORY_NAME:-"eks-workshop-v2"}
