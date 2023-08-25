@@ -110,8 +110,12 @@ chmod +x ./argocd-linux-amd64
 mv ./argocd-linux-amd64 /usr/local/bin/argocd
 
 # brew
-mkdir -p ~/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C ~/homebrew
-alias brew="~/homebrew/bin/brew"
+curl --location --show-error --silent "https://github.com/Homebrew/brew/tarball/master" -o "homebrew.tar.gz"
+mkdir -p homebrew
+tar xfz homebrew.tar.gz --strip 1 -C ./homebrew
+mv -f ./homebrew /usr/local/bin
+rm -rf homebrew.tar.gz
+alias brew="/usr/local/bin/homebrew/bin/brew"
 
 # eks-node-viewer
 # brew tap aws/tap
