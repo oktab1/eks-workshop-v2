@@ -19,6 +19,10 @@ export AWS_PAGER=""
 export AWS_REGION="${AWS_REGION}"
 EOT
 
+cat << EOT > ~/.bashrc.d/eksnodeviewer.bash
+alias eks-node-viewer="~/go/bin/eks-node-viewer"
+EOT
+
 touch ~/.bashrc.d/workshop-env.bash
 
 cat << EOT > /home/ec2-user/.bashrc.d/aliases.bash
